@@ -5,7 +5,7 @@ from .models import Employee,Job
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-        list_display = ['First_name','last_name','gender']
+        list_display = ['first_name','last_name','gender']
 
     
 @admin.register(Job)
