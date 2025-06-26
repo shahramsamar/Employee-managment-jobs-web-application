@@ -1,7 +1,7 @@
 from django.shortcuts import render,HttpResponse,get_object_or_404
 from .models import Employee,Job
 
-def home(requet):
+def home(request):
     return render(request,'home.html',{"employee":Employee.objects.all()})
 
 
