@@ -1,0 +1,27 @@
+{% extends 'base.html'%} {% block content %}
+<div class="col-md-6">
+    <div class="card mb-5">
+        <div class="card-header">Complete Details of Employee</div>
+       
+        <div class="card-body">
+            <h2>{{ employee.first_name|capfirst }}   {{ employee.last_name|capfirst }}</h2>
+            <hr>
+            <p><strong>Email:</strong><span class="text-secondry"></span> {{employee.email}} </p>
+            <p><strong>Phone:</strong><span class="text-secondry"></span> {{employee.phone}} </p>
+            <p><strong>Address:</strong><span class="text-secondry"></span> {{employee.address}} </p>
+            <p><strong>Gender:</strong><span class="text-secondry"></span> {{employee.gender}} </p>
+            <p><strong>Birthday:</strong><span class="text-secondry"></span> {{employee.Birthday}} </p>
+            <p><strong>Joining Date:</strong><span class="text-secondry"></span> {{employee.joining_date}} </p>
+            <p><strong>Job  Assigned:</strong></p>
+            {% if employee.jobs.all %}
+            <ul class="list-group">
+                    {% for join in employee.jobs.all %}
+                        <li class="list-group-item">{{join.name}}</li>
+                    {% endfor %}
+            </ul>
+            {% endif %} 
+        </div>
+        <a href="{% url 'home' %}" class="card-footer" class="btn btn-sm btn-warning">Back Home</a>
+    </div>
+</div>
+{% endblock content %}
